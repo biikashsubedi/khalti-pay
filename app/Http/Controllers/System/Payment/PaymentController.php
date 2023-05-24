@@ -49,7 +49,7 @@ class PaymentController extends Controller
     {
         $data['item'] = Payment::findOrFail($id);
         $data['title'] = 'Edit Payment Method';
-        $data['indexUrl'] = 'payment/' . $id . '/config';
+        $data['indexUrl'] = $this->indexUrl();
         $data['breadcrumbs'] = breadcrumbForForm($data['title'], $data['indexUrl'], 'Payment', $this->indexUrl());
         $data['status'] = $this->status();
         $data['mode'] = $this->mode();

@@ -2,9 +2,11 @@
 
 return [
     'khalti' => [
-        'merchantId',
         'secretKey',
+        'initiateUrl',
         'verifyUrl',
-        'mobileVerifyUrl',
+        'systemReturnUrl',
+        'mobileSuccessUrl',
+        'mobileFailedUrl',
     ],
 ];

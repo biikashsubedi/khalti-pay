@@ -11,19 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('transaction_logs', function (Blueprint $table) {
+        Schema::create('successes', function (Blueprint $table) {
             $table->id();
+            $table->uuid('terminal');
+            $table->string('pidx')->nullable();
+            $table->string('payment')->nullable();
             $table->string('order')->nullable();
             $table->string('name')->nullable();
-            $table->string('email')->nullable();
-            $table->string('number')->nullable();
-            $table->string('payment')->nullable();
             $table->string('amount')->nullable();
             $table->boolean('status')->default(false);
-            $table->boolean('checkout_pass')->default(false);
-            $table->boolean('initialize_pass')->default(false);
-            $table->boolean('verification_pass')->default(false);
-            $table->json('response')->nullable();
             $table->json('detail')->nullable();
             $table->timestamps();
         });
@@ -34,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('transaction_logs');
+        Schema::dropIfExists('successes');
     }
 };

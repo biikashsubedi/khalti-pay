@@ -32,4 +32,15 @@ class PaymentModeDomain
         ];
     }
 
+    public function pay($request)
+    {
+        return [
+            'payment' => $request->payment,
+            'amount' => $request->amount,
+            'id' => $request->id,
+            'name' => $request->name,
+        ];
+    }
+
+
 }

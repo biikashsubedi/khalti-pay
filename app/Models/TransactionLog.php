@@ -23,13 +23,11 @@ class TransactionLog extends Model
     public function processLogs($request, $checkout = false, $initialize = false, $verification = false, $payload = null, $status = false)
     {
         try {
-
-            $getLog = TransactionLog::whereOrder($request['order'])->first();
-
+            $getLog = TransactionLog::whereOrder($request['id'])->first();
             $response = [];
             if ($payload && $getLog) {
                 $response = $getLog->response;
-                $response[Carbon::now()->timestamp] = $payload;
+                $response[Carbon::now()->addSecond()->timestamp] = $payload;
             }
 
             if (empty($response) && !$initialize && !$verification) {
@@ -43,11 +41,12 @@ class TransactionLog extends Model
             }
 
             $data = [
-                'order' => $request['order'],
-                'name' => $request['name'],
-                'email' => $request['email'],
-                'number' => $request['number'],
-                'payment' => 'Khalti',
+                'order' => $request['id'] ?? null,
+                'name' => $request['name'] ?? null,
+                'email' => $request['email'] ?? null,
+                'number' => $request['number'] ?? null,
+                'amount' => $request['amount'] ?? null,
+                'payment' => ucwords(Payment::$khalti),
                 'status' => $status,
                 'checkout_pass' => $checkout,
                 'initialize_pass' => $initialize,
@@ -62,6 +61,7 @@ class TransactionLog extends Model
             }
 
         } catch (\Exception $e) {
+            dd($e);
             \Log::error('Unable to perform transaction logs ' . $e);
         }
     }

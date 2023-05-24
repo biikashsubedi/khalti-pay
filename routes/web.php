@@ -27,9 +27,10 @@ Auth::routes();
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/profile', [HomeController::class, 'index'])->name('profile');
 Route::resource('/config', ConfigController::class)->only('index', 'update');
-Route::resource('/transactionLog', TransactionLogController::class)->only('index', 'show');
+Route::resource('/transactionLog', TransactionLogController::class)->only('index');
+Route::get('/transactionLog/{id}/show', [TransactionLogController::class, 'show'])->name('transactionLog.show');
 Route::resource('/payment', PaymentController::class);
-Route::get('/payment/{id}/config/', [PaymentController::class, 'showConfigForm'])->name('payment.mode.config.form');
+Route::get('/payment/{id}/config', [PaymentController::class, 'showConfigForm'])->name('payment.mode.config.form');
 Route::post('/payment/config', [PaymentController::class, 'storeConfigForm'])->name('payment.mode.config.store');
 Route::get('/apiKey', [ApiKeyController::class, 'index'])->name('apiKey');
 

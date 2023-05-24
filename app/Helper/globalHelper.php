@@ -98,3 +98,19 @@ function fromCamelCase($input)
     }
     return implode(' ', $ret);
 }
+
+function isAndroidApiKey()
+{
+    return checkApiKeyType('android');
+}
+
+function isIosApiKey()
+{
+    return checkApiKeyType('ios');
+}
+
+function checkApiKeyType($type)
+{
+    $key = request()->header('platform');
+    return $key == $type;
+}

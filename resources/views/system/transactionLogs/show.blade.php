@@ -140,29 +140,17 @@
                     <div class="customer-detail">
                         <div class="customer-detail-inner d-flex">
                             <span class="title">Name</span><span>
-                                @if($isGiftCard)
-                                    {{ ucwords($item->card->name ?? "N/A") }}
-                                @else
-                                    {{ ucwords($item->user->name ?? "N/A") }}
-                                @endif
+                                    {{ ucwords($item->name ?? "N/A") }}
                             </span>
                         </div>
                         <div class="customer-detail-inner d-flex">
                             <span class="title">Email</span><span>
-                                @if($isGiftCard)
-                                    {{ $item->card->email ?? "N/A" }}
-                                @else
-                                    {{ $item->user->email ?? "N/A" }}
-                                @endif
+                                    {{ $item->email ?? "N/A" }}
                             </span>
                         </div>
                         <div class="customer-detail-inner d-flex">
                             <span class="title">Number</span><span>
-                                @if($isGiftCard)
-                                    {{ $item->card->mobile_number ?? "N/A" }}
-                                @else
-                                    {{ $item->user->mobile_number ?? "N/A" }}
-                                @endif
+                                    {{ $item->number ?? "N/A" }}
                             </span>
                         </div>
                         <div class="customer-detail-inner d-flex">
@@ -172,7 +160,7 @@
                         </div>
                         <div class="customer-detail-inner d-flex">
                             <span
-                                class="title">@if($isGiftCard) Gift Card Coupon @else Order Number @endif</span>
+                                class="title">Order Number</span>
                             <span>@include('system.transactionLogs.includes.order')</span>
                         </div>
                         <div class="customer-detail-inner d-flex">

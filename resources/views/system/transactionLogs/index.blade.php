@@ -7,11 +7,13 @@
 
     @livewire('index-table', [
         'tableFields' => [
-            "Order Number"=>'include:system.transactionLogs.includes.order',
-            "Name"=>'include:system.transactionLogs.includes.name',
+            "order",
+            "name",
+            "email",
+            "number",
             "payment",
             "Transaction Date"=>'include:system.transactionLogs.includes.date',
-            "Amount"=>'include:system.transactionLogs.includes.amount',
+            "Amount",
             "Status" => 'include:system.transactionLogs.includes.status',
             'Action' => 'include:system.transactionLogs.includes.showButton'
         ],
@@ -26,5 +28,6 @@
         ],
         'indexUrl' => route('transactionLog.index'),
         'modal' => '\App\Models\TransactionLog',
+        'showDeleteButton' => false
     ])
 @endsection

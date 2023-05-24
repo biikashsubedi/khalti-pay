@@ -21,4 +21,9 @@ class ApiKey extends Model
 
     static $ios = 'ios';
     static $android = 'android';
+
+    public function getApiKey($key)
+    {
+        return self::where('key', $key)->whereStatus(1)->first();
+    }
 }
