@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\System\ApiKey\ApiKeyController;
 use App\Http\Controllers\System\Config\ConfigController;
 use App\Http\Controllers\System\Payment\PaymentController;
 use App\Http\Controllers\System\TransactionLog\TransactionLogController;
@@ -30,6 +31,8 @@ Route::resource('/transactionLog', TransactionLogController::class)->only('index
 Route::resource('/payment', PaymentController::class);
 Route::get('/payment/{id}/config/', [PaymentController::class, 'showConfigForm'])->name('payment.mode.config.form');
 Route::post('/payment/config', [PaymentController::class, 'storeConfigForm'])->name('payment.mode.config.store');
+Route::get('/apiKey', [ApiKeyController::class, 'index'])->name('apiKey');
+
 
 //for logs
 Route::get('logs', [\Rap2hpoutre\LaravelLogViewer\LogViewerController::class, 'index'])->name('system.logs');

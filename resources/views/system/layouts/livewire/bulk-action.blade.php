@@ -9,21 +9,13 @@
         @if(!$removeExport)
             <a class="dropdown-item" href="#"
                onclick="confirm('Are you sure, you want to Export?', function(){ $('.exportitem').trigger('click') }) || event.stopImmediatePropagation()"
-            >{{translate('Export')}}</a>
+            >Export</a>
         @endif
         @if($showDeleteButton)
             <div class="dropdown-divider"></div>
             <button class="d-none removeitem" wire:click="deleteRecords"></button>
             <a class="dropdown-item" href="#"
-               onclick="confirm('Are you sure, you want to delete?', function(){ $('.removeitem').trigger('click') }) || event.stopImmediatePropagation()">{{translate('Delete')}}</a>
-        @endif
-
-        @if($addBulkActionForProduct && !checkMultipleVariantEnabled())
-            <div class="dropdown-divider"></div>
-            <button class="d-none addBulkActionForProduct" wire:click="addBulkActionForProducts"></button>
-            <a class="dropdown-item" href="#"
-               onclick="confirm('Are You Sure, You Want To Choose Add-Ons For Selected Products?', function(){ $('.addBulkActionForProduct').trigger('click'); }) || event.stopImmediatePropagation()"
-            >{{translate('Choose Add-Ons')}}</a>
+               onclick="confirm('Are you sure, you want to delete?', function(){ $('.removeitem').trigger('click') }) || event.stopImmediatePropagation()">Delete</a>
         @endif
     </div>
 </div>

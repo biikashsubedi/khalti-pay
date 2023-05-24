@@ -4,14 +4,10 @@ namespace App\Http\Controllers\System\Payment;
 
 use App\Domain\PaymentModeDomain;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\System\ConfigRequest;
 use App\Http\Requests\System\PaymentRequest;
-use App\Models\Config;
 use App\Models\Payment;
-use App\Traits\ImageTrait;
 use File;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Redirect;
 
 class PaymentController extends Controller
 {

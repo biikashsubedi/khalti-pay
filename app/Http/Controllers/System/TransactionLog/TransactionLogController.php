@@ -3,9 +3,6 @@
 namespace App\Http\Controllers\System\TransactionLog;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\System\ConfigRequest;
-use App\Models\Config;
-use App\Traits\ImageTrait;
 use File;
 
 class TransactionLogController extends Controller

@@ -40,6 +40,13 @@
                     <span class="sidemenu-label">Payment Mode</span></a>
             </li>
             <li class="nav-item">
+                <a class="nav-link" href="{{route('apiKey')}}">
+                    <span class="shape1"></span>
+                    <span class="shape2"></span>
+                    <i class='sidemenu-icon fa fa-key'></i>
+                    <span class="sidemenu-label">Api Key</span></a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="{{route('transactionLog.index')}}">
                     <span class="shape1"></span>
                     <span class="shape2"></span>
